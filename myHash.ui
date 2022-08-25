@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>myHashClass</class>
+ <widget class="QMainWindow" name="myHashClass">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>600</width>
+    <height>400</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>myHash</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="myHash.qrc">
+    <normaloff>:/myHash/logo</normaloff>:/myHash/logo</iconset>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QComboBox" name="comboBox">
+      <item>
+       <property name="text">
+        <string>SHA1</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>SHA256</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>SHA512</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>MD5</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+    <item>
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="currentIndex">
+       <number>1</number>
+      </property>
+      <widget class="TextHash" name="TextTab">
+       <attribute name="title">
+        <string>Text</string>
+       </attribute>
+      </widget>
+      <widget class="FileHash" name="FileTab">
+       <attribute name="title">
+        <string>File</string>
+       </attribute>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>TextHash</class>
+   <extends>QWidget</extends>
+   <header>TextHash.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>FileHash</class>
+   <extends>QWidget</extends>
+   <header>FileHash.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="myHash.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>comboBox</sender>
+   <signal>currentIndexChanged(int)</signal>
+   <receiver>myHashClass</receiver>
+   <slot>AlgorithmChanged(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>79</x>
+     <y>55</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>65</x>
+     <y>39</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>AlgorithmChanged(int)</slot>
+ </slots>
+</ui>
