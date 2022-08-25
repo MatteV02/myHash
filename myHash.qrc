@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/myHash">
+        <file alias="logo">myHash_logo.png</file>
+    </qresource>
+</RCC>
